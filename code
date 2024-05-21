@@ -1,0 +1,87 @@
+def mostrar_menu
+    puts "Calculadora Científica"
+    puts "Selecione uma opção:"
+    puts "1. Soma"
+    puts "2. Subtração"
+    puts "3. Multiplicação"
+    puts "4. Divisão"
+    puts "5. Potência"
+    puts "6. Raiz Quadrada"
+    puts "7. Seno"
+    puts "8. Cosseno"
+    puts "9. Tangente"
+    puts "10. Logaritmo"
+    puts "11. Sair"
+  end
+  
+  def obter_numero
+    print "Digite um número: "
+    gets.to_f
+  end
+  
+  def obter_dois_numeros
+    print "Digite o primeiro número: "
+    num1 = gets.to_f
+    print "Digite o segundo número: "
+    num2 = gets.to_f
+    return num1, num2
+  end
+  
+  loop do
+    mostrar_menu
+    opcao = gets.chomp.to_i
+  
+    case opcao
+    when 1
+      num1, num2 = obter_dois_numeros
+      puts "Resultado: #{num1 + num2}"
+    when 2
+      num1, num2 = obter_dois_numeros
+      puts "Resultado: #{num1 - num2}"
+    when 3
+      num1, num2 = obter_dois_numeros
+      puts "Resultado: #{num1 * num2}"
+    when 4
+      num1, num2 = obter_dois_numeros
+      if num2 != 0
+        puts "Resultado: #{num1 / num2}"
+      else
+        puts "Erro: Divisão por zero"
+      end
+    when 5
+      num1, num2 = obter_dois_numeros
+      puts "Resultado: #{num1 ** num2}"
+    when 6
+      num = obter_numero
+      if num >= 0
+        puts "Resultado: #{Math.sqrt(num)}"
+      else
+        puts "Erro: Não é possível calcular a raiz quadrada de um número negativo"
+      end
+    when 7
+      num = obter_numero
+      puts "Resultado: #{Math.sin(num)}"
+    when 8
+      num = obter_numero
+      puts "Resultado: #{Math.cos(num)}"
+    when 9
+      num = obter_numero
+      puts "Resultado: #{Math.tan(num)}"
+    when 10
+      num = obter_numero
+      if num > 0
+        puts "Resultado: #{Math.log(num)}"
+      else
+        puts "Erro: Não é possível calcular o logaritmo de um número não positivo"
+      end
+    when 11
+      puts "Saindo..."
+      break
+    else
+      puts "Opção inválida"
+    end
+  
+    puts "Pressione Enter para continuar..."
+    gets
+  end
+  
